@@ -2,6 +2,13 @@
   <a href="https://dockerswarm.rocks"><img src="https://dockerswarm.rocks/img/logo-light-blue-vectors.svg" alt="dockerswarm.rocks"></a>
 </p>
 
+## Quickstart
+
+```
+curl https://rhildred.github.io/dockerswarm.rocks/setup.sh | bash -s
+
+```
+
 
 ## Why?
 
