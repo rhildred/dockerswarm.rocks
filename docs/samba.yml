@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  samba:
+    image: dperson/samba
+    volumes:
+      - /efs:/g
+    ports:
+      - 139:139
+      - 445:445
+    entrypoint:
+      - "/sbin/tini"
+      - "--"
+      - "/usr/bin/samba.sh"
+      - -u
+      - "example1;badpass"
+      - -s
+      - "data;/g;no;no;no;example1"
+      - -p
+
