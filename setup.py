@@ -5,7 +5,7 @@
 import subprocess
 
 #missing packages
-subprocess.call(["sudo", "yum", "update"])
+subprocess.call("sudo yum update", shell=True)
 subprocess.call("sudo yum install git amazon-efs-utils", shell=True)
 
 #hostname
