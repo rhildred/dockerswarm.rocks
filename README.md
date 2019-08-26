@@ -5,7 +5,7 @@
 ## Quickstart
 
 ```
-curl https://rhildred.github.io/dockerswarm.rocks/setup.sh | bash -s
+curl https://rhildred.github.io/dockerswarm.rocks/setup.py | python
 
 ```
 
