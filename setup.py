@@ -29,3 +29,7 @@ subprocess.call("sudo amazon-linux-extras install docker", shell=True)
 subprocess.call("sudo service docker start", shell=True)
 subprocess.call("sudo usermod -a -G docker ec2-user", shell=True)
 subprocess.call("sudo systemctl enable docker", shell=True)
+
+# add compose
+subprocess.call("sudo curl -L \"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose", shell=True)
+subprocess.call("sudo chmod +x /usr/local/bin/docker-compose")
