@@ -80,7 +80,7 @@ Consul is a distributed configuration key/value store, it will:
 * Create a network that will be shared with Traefik and the containers that should be accessible from the outside, with:
 
 ```bash
-docker network create --driver=overlay traefik-public --attachable --gateway <gateway here>
+docker network create --driver=overlay traefik-public --attachable --subnet <gateway here>/24
 ```
 
 * Create an environment variable with your email, to be used for the generation of Let's Encrypt certificates:
