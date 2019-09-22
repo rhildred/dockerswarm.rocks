@@ -19,11 +19,6 @@ subprocess.call(["sudo", "mkswap", "/swapfile"])
 subprocess.call(["sudo", "swapon", "/swapfile"])
 subprocess.call("sudo sh -c \"echo '/swapfile swap swap defaults 0 0'>>/etc/fstab\"", shell=True)
 
-# mount the data volume
-subprocess.call("sudo mkdir /h", shell=True)
-subprocess.call("sudo sh -c \"echo 'esgaroth.selab.ca:/h /h nfs rw 0 0'>>/etc/fstab\"", shell=True)
-subprocess.call("sudo mount -a", shell=True)
-
 # do the initial docker setup
 subprocess.call("sudo amazon-linux-extras install docker", shell=True)
 subprocess.call("sudo service docker start", shell=True)
