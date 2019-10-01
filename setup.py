@@ -5,8 +5,8 @@
 import subprocess
 
 #missing packages
-subprocess.call("sudo yum -y update", shell=True)
-subprocess.call("sudo yum -y install git amazon-efs-utils", shell=True)
+subprocess.call("sudo apt update", shell=True)
+subprocess.call("sudo apt install git", shell=True)
 
 #hostname
 sHostName = raw_input("enter desired fully qualified hostname: ")
@@ -20,9 +20,9 @@ subprocess.call(["sudo", "swapon", "/swapfile"])
 subprocess.call("sudo sh -c \"echo '/swapfile swap swap defaults 0 0'>>/etc/fstab\"", shell=True)
 
 # do the initial docker setup
-subprocess.call("sudo amazon-linux-extras install docker", shell=True)
+subprocess.call("sudo apt install docker.io", shell=True)
 subprocess.call("sudo service docker start", shell=True)
-subprocess.call("sudo usermod -a -G docker ec2-user", shell=True)
+subprocess.call("sudo usermod -a -G docker ubuntu", shell=True)
 subprocess.call("sudo systemctl enable docker", shell=True)
 
 # add compose
