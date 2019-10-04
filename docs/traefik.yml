@@ -10,7 +10,7 @@ services:
       - CONSUL_BIND_INTERFACE=eth0
       - 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true}'
     networks:
-      - traefik-public
+      - showcase
     deploy:
   consul-replica:
     image: consul
@@ -21,7 +21,7 @@ services:
       - CONSUL_BIND_INTERFACE=eth0
       - 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true}'
     networks:
-      - traefik-public
+      - showcase
     deploy:
       replicas: ${CONSUL_REPLICAS:-3}
       placement:
@@ -62,7 +62,7 @@ services:
       --accessLog
       --api
     networks:
-      - traefik-public
+      - showcase
     depends_on:
       - consul-leader
         
@@ -71,5 +71,5 @@ volumes:
   consul-data-replica:
 
 networks:
-  traefik-public:
+  showcase:
     external: true
