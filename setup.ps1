@@ -2,7 +2,7 @@
   Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
   $Server = Read-Host -Prompt 'Input your server  name'
   Rename-Computer -NewName $Server -Force -PassThru
-  curl -L https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe -o git.exe
+  curl https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe -o git.exe
   .\git.exe
   $User =  Read-Host -Prompt 'Input your user  name'
   $Password = Read-Host -Prompt 'Input your password'
