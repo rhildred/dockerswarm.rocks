@@ -6,6 +6,7 @@ sudo systemctl start drbd
 sudo systemctl start heartbeat
 sudo systemctl enable drbd
 sudo systemctl enable heartbeat
+sudo sh -c "echo -e 'n\np\n1\n\n\nw' | fdisk /dev/nvme0n1"
 
 echo -n "enter desired fully qualified hostname: "
 read HOSTNAME
