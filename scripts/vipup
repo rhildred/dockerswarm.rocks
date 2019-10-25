@@ -1,0 +1,13 @@
+#!/bin/bash
+# This script will monitor another HA node and take over a Virtual IP (VIP)
+# if communication with the other node fails
+VIP=NNN.NNN.NNN.NNN
+REGION=XXXXXXXX
+Instance_ID=$(curl --silent http://169.254.169.254/latest/meta-data/instance-id)
+ENI_ID=$(ec2-describe-instances "$Instance_ID" --region "$REGION" | grep eni -m 1 | awk '{print $2;}')
+
+echo "$(date) -- taking over VIP"
+ec2-assign-private-ip-addresses -n "$ENI_ID" \
+--secondary-private-ip-address "$VIP" \
+--allow-reassignment --region "$REGION"
+ifconfig ens5:0 "$VIP" netmask 255.255.255.0 > /dev/null 2>&1
