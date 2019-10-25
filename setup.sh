@@ -2,6 +2,10 @@
 
 sudo apt update
 sudo apt install git drbd8-utils heartbeat linux-image-extra-virtual ntpdate tzdata ec2-api-tools ec2-ami-tools awscli ifupdown nfs-kernel-server
+sudo systemctl start drbd
+sudo systemctl start heartbeat
+sudo systemctl enable drbd
+sudo systemctl enable heartbeat
 
 echo -n "enter desired fully qualified hostname: "
 read HOSTNAME
