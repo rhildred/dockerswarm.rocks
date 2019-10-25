@@ -1,0 +1,5 @@
+keepalive 2
+deadtime 30
+initdead 120
+ucast ens5 NNN.NNN.NNN.NNN
+auto_failback on
