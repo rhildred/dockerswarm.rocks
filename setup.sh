@@ -37,7 +37,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # then do hosts so that the partners can see each other
 
-# then go through the rest of the files in the scripts folder
+# then go through the rest of the files in the scripts folder. Don't forget to chmod +x vipup
 
 # then do the drbd metadata and sync watch with `watch -n1 cat /proc/drbd`
 
