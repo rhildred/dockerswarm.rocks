@@ -6,6 +6,9 @@ sudo systemctl start drbd
 sudo systemctl start heartbeat
 sudo systemctl enable drbd
 sudo systemctl enable heartbeat
+sudo systemctl stop nfs-kernel-server
+sudo systemctl disable nfs-kernel-server
+sudo ln -s /etc/init.d/nfs-kernel-server /etc/ha.d/resource.d/nfs-kernel-server
 sudo sh -c "echo -e 'n\np\n1\n\n\nw' | fdisk /dev/nvme0n1"
 sudo sh -c 'echo "2 eth1_rt" >> /etc/iproute2/rt_tables'
 
@@ -29,3 +32,17 @@ sudo systemctl enable docker
 # add compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# use article https://www.howtoforge.com/tutorial/ubuntu-drbd-heartbeat-high-availability/
+
+# then do hosts so that the partners can see each other
+
+# then go through the rest of the files in the scripts folder
+
+# then do the drbd metadata and sync
+
+# then put /var/lib/nfs on the shared drive along with /etc/exports and link on both machines
+
+# then put the line for the /g drive in the /etc/fstab
+
+# then reinit and it should come up???
