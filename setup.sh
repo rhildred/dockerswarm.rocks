@@ -7,6 +7,7 @@ sudo systemctl start heartbeat
 sudo systemctl enable drbd
 sudo systemctl enable heartbeat
 sudo sh -c "echo -e 'n\np\n1\n\n\nw' | fdisk /dev/nvme0n1"
+sudo sh -c 'echo "2 eth1_rt" >> /etc/iproute2/rt_tables'
 
 echo -n "enter desired fully qualified hostname: "
 read HOSTNAME
