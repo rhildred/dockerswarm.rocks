@@ -39,7 +39,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # then go through the rest of the files in the scripts folder
 
-# then do the drbd metadata and sync
+# then do the drbd metadata and sync watch with `watch -n1 cat /proc/drbd`
 
 # then put /var/lib/nfs on the shared drive along with /etc/exports and link on both machines
 
