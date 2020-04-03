@@ -14,5 +14,12 @@ sudo sh -c "echo '/swapfile swap swap defaults 0 0'>>/etc/fstab"
 
 # create ubuntu user with sudo privileges
 
+deluser user
 useradd ubuntu -u 1000 && echo "ubuntu:ubuntu" | chpasswd && adduser ubuntu sudo
 sed -i /etc/sudoers -re 's/^%sudo.*/%sudo   ALL=(ALL:ALL) NOPASSWD: ALL/g'
+mkdir /home/ubuntu
+chown ubuntu:ubuntu /home/ubuntu
+
+echo 'You will still need to set up some authorized_keys'
+echo 'Also please set `PermitRootLogin no`'
+echo '`PasswordAuthentication no` and `ChallengeResponseAuthentication no`'
